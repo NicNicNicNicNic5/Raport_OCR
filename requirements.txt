@@ -1,0 +1,20 @@
+opencv-python
+numpy
+pytesseract
+tqdm
+pillow
+easyocr
+torch
+transformers
+fuzzywuzzy
+scipy
+pdf2image
+# poppler
+poppler-utils
+python-levenshtein
+ultralytics
+sklearn
+scikit-learn
+paddleocr
+paddlepaddle
+augmentor
