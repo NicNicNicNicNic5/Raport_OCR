@@ -11,7 +11,8 @@ import shutil
 from tqdm import tqdm
 from PIL import Image
 import easyocr
-import torch, torchvision
+# import torch
+# import torchvision
 from transformers import pipeline
 from fuzzywuzzy import process
 from pdf2image import convert_from_path

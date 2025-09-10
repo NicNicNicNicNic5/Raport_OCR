@@ -18,7 +18,9 @@ Ensure you have Python 3.8+ installed. Install dependencies using (I'm using Pyt
 
 If your encounter error on:
 no. 2: microsoft store dependency or something:
-run this command in terminal "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser"
+full error text: "..\.venv\Scripts\Activate.ps1 cannot be loaded because running scripts is disabled on this system. For more information, see 
+about_Execution_Policies at https:/go.microsoft.com/fwlink/?LinkID=135170."
+run this command in terminal "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser" or "Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope Process"
 run this command in terminal ".venv\Scripts\Activate.ps1"
 
 no. 3: library installation failed:
@@ -121,7 +123,6 @@ pdfinfo -v
 ## Running the OCR Pipeline
 
 Ensure your images and PDFs are placed in the correct directories:
-- Place raw images in: `data/data_images/raw/`
 - Place raw PDFs in: `data/data_pdfs/raw/`
 
 Run the script:
@@ -136,5 +137,13 @@ Results will be stored in:
 ### Troubleshooting
 - If you see **"Poppler not found"**, ensure you installed it and added it to `PATH`.
 - If you see **"Tesseract not found"**, ensure it is installed and in `PATH`.
+
+### How does this program works
+1. The program will read ALL the pdfs in data\data_pdfs\raw
+2. Then it will convert the pdfs into images and store it in data\data_images\generated
+3. Loop through ALL images in data\data_images\generated
+4. each loop will resulting in both all text extracted and white list extracted
+5. for the all text extracted, save in ocr_results\text_results
+6. for the white list extracted, save in ocr_results\extracted_values
 
 Enjoy your OCR pipeline!
